@@ -88,6 +88,10 @@ namespace Views
 			{
 				Component::Transformer::Resize(it[0], 0.01f);
 			}
+
+			Component::Transformer::Rotate(it[0], Enums::OrientationAngle::YAXIS);
+			Component::Transformer::Rotate(it[0], Enums::OrientationAngle::ZAXIS);
+			Component::Transformer::Rotate(it[0], Enums::OrientationAngle::XAXIS);
 		}
 	}
 	void Canvas::DragComponents(std::vector<std::shared_ptr<Component::IComponent>> components)

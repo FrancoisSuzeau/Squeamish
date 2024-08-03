@@ -78,7 +78,7 @@ namespace Views
 			}
 		}
 
-		tabs_size.push_back(ImVec2(0, 250));
+		tabs_size.push_back(ImVec2(0, 350));
 		tabs_size.push_back(ImVec2(0, 700));
 		tabs_size.push_back(ImVec2(0, 300));
 		tabs_size.push_back(ImVec2(0, 100));
@@ -333,11 +333,16 @@ namespace Views
 			glm::vec3 size = selected_renderer->GetSize();
 			glm::vec3 position = selected_renderer->GetPosition();
 			float global_size = selected_renderer->GetSize().x;
+			float angle_1 = selected_renderer->GetAngle1();
+			float angle_2 = selected_renderer->GetAngle2();
+			float angle_3 = selected_renderer->GetAngle3();
 
 			ImGui::BulletText("Position : ");
 			ImGui::SliderFloat("X - Axis", &position.x, -5.0f, 5.0f, "%.3f");
 			ImGui::SliderFloat("Y - Axis", &position.y, -5.0f, 5.0f, "%.3f");
 			ImGui::SliderFloat("Z - Axis", &position.z, -5.0f, 5.0f, "%.3f");
+
+			selected_renderer->SetPosition(position);
 
 			ImGui::BulletText("Size : ");
 			if (ImGui::SliderFloat("Width", &size.x, 0.0f, 5.0f, "%.3f") || ImGui::SliderFloat("Height", &size.y, 0.0f, 5.0f, "%.3f") || ImGui::SliderFloat("Depth", &size.z, 0.0f, 5.0f, "%.3f"))
@@ -349,8 +354,21 @@ namespace Views
 				selected_renderer->SetSize(global_size);
 			}
 
-			
-			selected_renderer->SetPosition(position);
+			ImGui::BulletText("Orientation : ");
+			if (ImGui::SliderFloat("X axis", &angle_1, 0.f, 180.f, "%.3f"))
+			{
+				selected_renderer->SetAngle1(angle_1);
+			}
+
+			if (ImGui::SliderFloat("Y axis", &angle_2, 0.f, 180.f, "%.3f"))
+			{
+				selected_renderer->SetAngle2(angle_2);
+			}
+
+			if (ImGui::SliderFloat("Z axis", &angle_3, 0.f, 180.f, "%.3f"))
+			{
+				selected_renderer->SetAngle3(angle_3);
+			}
 		}
 	}
 

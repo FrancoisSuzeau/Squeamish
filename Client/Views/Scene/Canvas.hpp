@@ -21,6 +21,7 @@
 #include "Renderers/Textured/SquareTextured.hpp"
 #include "Renderers/Textured/SphereTextured.hpp"
 
+#include "Enums/EngineEnum.hpp"
 #include "IComponent.hpp"
 
 #include "Draggable.hpp"

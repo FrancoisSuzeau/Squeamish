@@ -96,10 +96,23 @@ namespace Component
 			component->SetModelMat(model);
 		}
 	}
-	void Transformer::Rotate(std::shared_ptr<Component::IComponent> component, glm::vec3 axis)
+	void Transformer::Rotate(std::shared_ptr<Component::IComponent> component, Enums::OrientationAngle const or_angle)
 	{
 		glm::mat4 model = component->GetModelMat();
-		model = glm::rotate(model, glm::radians(component->GetAngle()), axis);
+		switch (or_angle)
+		{
+		case Enums::OrientationAngle::XAXIS:
+			model = glm::rotate(model, glm::radians(component->GetAngle1()), glm::vec3(1.f, 0.f, 0.f));
+			break;
+		case Enums::OrientationAngle::YAXIS:
+			model = glm::rotate(model, glm::radians(component->GetAngle2()), glm::vec3(0.f, 1.f, 0.f));
+			break;
+		case Enums::OrientationAngle::ZAXIS:
+			model = glm::rotate(model, glm::radians(component->GetAngle3()), glm::vec3(0.f, 0.f, 1.f));
+			break;
+		default:
+			break;
+		}
 		component->SetModelMat(model);
 	}
 	void Transformer::ReinitModelMat(std::shared_ptr<Component::IComponent> component)

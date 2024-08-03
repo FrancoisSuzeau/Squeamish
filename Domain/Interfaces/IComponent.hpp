@@ -94,21 +94,35 @@ namespace Component {
 			return m_selected;
 		}
 
-		virtual void IncrementAngle(float const incr)
+		virtual void SetAngle1(float const angle)
 		{
-			if (m_angle > 360.f)
-			{
-				m_angle = 0.f;
-			}
-			else
-			{
-				m_angle += incr;
-			}
+			m_angle_1 = angle;
 		}
 
-		virtual float GetAngle() const
+		virtual float GetAngle1() const
 		{
-			return m_angle;
+			return m_angle_1;
+		}
+
+		virtual void SetAngle2(float const angle)
+		{
+			m_angle_2 = angle;
+		}
+
+		virtual float GetAngle2() const
+		{
+			return m_angle_2;
+		}
+
+
+		virtual void SetAngle3(float const angle)
+		{
+			m_angle_3 = angle;
+		}
+
+		virtual float GetAngle3() const
+		{
+			return m_angle_3;
 		}
 
 		virtual glm::vec4 GetBackgroundColor() const 
@@ -226,7 +240,9 @@ namespace Component {
 		glm::vec3 m_size;
 		bool m_hovered;
 		bool m_selected;
-		float m_angle;
+		float m_angle_1;
+		float m_angle_2;
+		float m_angle_3;
 		glm::vec4 m_back_ground_color;
 		bool m_is_light_source;
 		float m_ambiant_occlusion;

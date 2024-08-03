@@ -18,7 +18,9 @@ namespace Component
 		m_size = size;
 		m_hovered = false;
 		m_selected = false;
-		m_angle = 0.f;
+		m_angle_1 = 0.f;
+		m_angle_2 = 0.f;
+		m_angle_3 = 0.f;
 		m_back_ground_color = color;
 		m_is_light_source = is_light_source;
 		m_ambiant_occlusion = ambiant_occlusion;

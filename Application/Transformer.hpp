@@ -15,6 +15,7 @@
 #include "Container/Container.hpp"
 #include "Constants/NumberConstants.hpp"
 #include "Services/PhysicsService.hpp"
+#include "Enums/EngineEnum.hpp"
 
 namespace Component
 {
@@ -25,7 +26,7 @@ namespace Component
 		static void Move(std::shared_ptr<Component::IComponent> component);
 		static void Resize(std::shared_ptr<Component::IComponent> component);
 		static void Resize(std::shared_ptr<Component::IComponent> component, float const offset);
-		static void Rotate(std::shared_ptr<Component::IComponent> component, glm::vec3 axis);
+		static void Rotate(std::shared_ptr<Component::IComponent> component, Enums::OrientationAngle const or_angle);
 		static void ReinitModelMat(std::shared_ptr<Component::IComponent> component);
 	private:
 		static void SetWorldParameters(std::shared_ptr<Services::ShaderService> shader_service, std::string const shader_name, 
